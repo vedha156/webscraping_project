@@ -8,10 +8,10 @@ df = pd.read_csv("countries_data.csv")
 # Convert Population to numeric
 df["Population"] = pd.to_numeric(df["Population"], errors="coerce")
 
-st.title("🌍 Countries Dashboard")
+st.title("Countries Dashboard")
 
 # Show Data Table
-st.subheader("📋 Scraped Data Table")
+st.subheader("Scraped Data Table")
 st.dataframe(df)
 
 # Slider to choose number of countries
@@ -27,7 +27,7 @@ num_countries = st.slider(
 df_sorted = df.sort_values(by="Population", ascending=False).head(num_countries)
 
 # Plot bar chart
-st.subheader(f"📊 Top {num_countries} Most Populated Countries")
+st.subheader(f"Top {num_countries} Most Populated Countries")
 fig, ax = plt.subplots(figsize=(15, 7))
 ax.bar(df_sorted["Country"], df_sorted["Population"], color="skyblue")
 plt.xticks(rotation=90)
